@@ -11,38 +11,26 @@ Original file is located at
 import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
-import seaborn as sns
 
-from google.colab import files
-uploaded = files.upload()
-for fn in uploaded.keys():
-    name=fn
-df1 = pd.read_pickle(name)
-
+#Upload DataFrame
+df1 = pd.read_pickle('Anexo_A.pkl')
 df = pd.DataFrame(df1)
-df
 
+#Cortar y Renombrar DataFrame "df"
 newdataH= df1.iloc[:45,:]
-newdataH
-
 newData = df1.iloc[46:,:]
-newData
 newDataV2 = newData.T.reset_index()
-newDataV2
-
 newDataV2.columns = newDataV2.columns.to_flat_index().str.join('')
-newDataV2
-
 newDataV2['metadataSI'] = pd.to_numeric(newDataV2['metadataSI'])
 newDataV2['metadataNO'] = pd.to_numeric(newDataV2['metadataNO'])
 
-"""# **Medidas de Tendencia Central**
+#//////////////////////////////////////////
+#Medidas de Tendencia Central
+#//////////////////////////////////////////
 
----
-
-Variable: no
-"""
-
+#----------------------
+#metadataNO
+#----------------------
 #Media
 newDataV2['metadataNO'].mean()
 
@@ -52,7 +40,9 @@ newDataV2['metadataNO'].median()
 #Moda
 newDataV2['metadataNO'].mode()
 
-"""Variable: si"""
+#----------------------
+#metadatasi
+#----------------------
 
 #Media
 newDataV2['metadataSI'].mean()
@@ -63,10 +53,13 @@ newDataV2['metadataSI'].median()
 #Moda
 newDataV2['metadataSI'].mode()
 
-"""# **Medidas de dispersión**
+#//////////////////////////////////////////
+#Medidas de dispersión
+#//////////////////////////////////////////
 
-variable: si
-"""
+#----------------------
+#metadataSI
+#----------------------
 
 #Varianza
 newDataV2['metadataSI'].var()
@@ -88,7 +81,9 @@ newDataV2.corr()
 #Resumen estadístico
 newDataV2.describe()
 
-"""variable: no"""
+#----------------------
+#metadataNO
+#----------------------
 
 #Varianza
 newDataV2['metadataNO'].var()
@@ -99,7 +94,10 @@ newDataV2['metadataNO'].std()
 #Cuartiles
 newDataV2['metadataNO'].quantile([.25])
 
-"""# **Graficos**"""
+#//////////////////////////////////////////
+#Graficos
+#//////////////////////////////////////////
+
 
 #Proyecto de ley, en tercer tramite constitucional, que modifica la ley N°20.551, 
 #que regula el cierre de las faenas e instalaciones mineras. Enmiendas que propone 
@@ -111,3 +109,7 @@ plt.ylabel("Cantidad de Votos")
 plt.show()
 
 disp=newDataV2.plot(kind='scatter',x='metadataSI', y='metadataNO')
+
+#//////////////////////////////////////////
+#Graficos
+#//////////////////////////////////////////
