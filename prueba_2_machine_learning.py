@@ -27,32 +27,36 @@ newDataV2['metadataNO'] = pd.to_numeric(newDataV2['metadataNO'])
 #//////////////////////////////////////////
 #Medidas de Tendencia Central
 #//////////////////////////////////////////
-
+print(' ')
+print('Medidas de Tendencia Central')
+print(' ')
 #----------------------
 #metadataNO
 #----------------------
+print('Variable metadataNO')
 #Media
-newDataV2['metadataNO'].mean()
-
+MediaNO = newDataV2['metadataNO'].mean()
+print('Media:', MediaNO)
 #Mediana
-newDataV2['metadataNO'].median()
-
+MedianaNO = newDataV2['metadataNO'].median()
+print('Mediana:', MedianaNO)
 #Moda
-newDataV2['metadataNO'].mode()
-
+ModaNO = newDataV2['metadataNO'].mode()
+print('Moda:', ModaNO)
 #----------------------
-#metadatasi
+#metadataSI
 #----------------------
-
+print(' ')
+print('Variable metadataSI')
 #Media
-newDataV2['metadataSI'].mean()
-
+MediaSI = newDataV2['metadataSI'].mean()
+print('Media:', MediaSI)
 #Mediana
-newDataV2['metadataSI'].median()
-
+MedianaSI = newDataV2['metadataSI'].median()
+print('Mediana:', MedianaSI)
 #Moda
-newDataV2['metadataSI'].mode()
-
+ModaSI = newDataV2['metadataSI'].mode()
+print('Moda:', ModaSI)
 #//////////////////////////////////////////
 #Medidas de dispersión
 #//////////////////////////////////////////
